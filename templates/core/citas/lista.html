@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="contenedor">
+    <div class="header-lista">
+        <h2>Listado de Citas</h2>
+        <a href="{% url 'core:cita_crear' %}" class="btn">Nueva Cita</a>
+    </div>
+
+    <table class="tabla">
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Paciente</th>
+                <th>Médico</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cita in citas %}
+            <tr>
+                <td>{{ cita.fecha|date:"d/m/Y H:i" }}</td>
+                <td>{{ cita.paciente }}</td>
+                <td>{{ cita.medico }}</td>
+                <td>{{ cita.estado }}</td>
+                <td class="acciones">
+                    <a href="{% url 'core:cita_editar' cita.id %}" class="btn-editar">Editar</a>
+                    <a href="{% url 'core:cita_eliminar' cita.id %}" class="btn-eliminar">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

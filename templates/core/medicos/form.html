@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="contenedor">
+    <h2>{{ object.id|yesno:"Editar,Nuevo" }} Médico</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn">Guardar</button>
+        <a href="{% url 'core:medico_lista' %}" class="btn">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

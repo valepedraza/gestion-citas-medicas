@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="contenedor">
+    <div class="header-lista">
+        <h2>Listado de Pacientes</h2>
+        <a href="{% url 'paciente_crear' %}" class="btn">Nuevo Paciente</a>
+    </div>
+
+    <div class="buscador">
+        <input type="text" id="buscar" placeholder="Buscar paciente...">
+    </div>
+
+    <table class="tabla">
+        <thead>
+            <tr>
+                <th>DNI</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Teléfono</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for paciente in pacientes %}
+            <tr>
+                <td>{{ paciente.dni }}</td>
+                <td>{{ paciente.nombre }}</td>
+                <td>{{ paciente.apellido }}</td>
+                <td>{{ paciente.telefono }}</td>
+                <td class="acciones">
+                    <a href="{% url 'paciente_editar' paciente.id %}" class="btn-editar">Editar</a>
+                    <a href="{% url 'paciente_eliminar' paciente.id %}" class="btn-eliminar">Eliminar</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

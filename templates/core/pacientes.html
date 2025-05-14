@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="pacientes">
+    <h2>Gestión de Pacientes</h2>
+    <a href="{% url 'paciente_nuevo' %}" class="btn">Nuevo Paciente</a>
+    
+    <table class="tabla-datos">
+        <thead>
+            <tr>
+                <th>DNI</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Teléfono</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for paciente in pacientes %}
+            <tr>
+                <td>{{ paciente.dni }}</td>
+                <td>{{ paciente.nombre }}</td>
+                <td>{{ paciente.apellido }}</td>
+                <td>{{ paciente.telefono }}</td>
+                <td>
+                    <a href="{% url 'paciente_editar' paciente.id %}" class="btn-small">Editar</a>
+                    <a href="{% url 'paciente_eliminar' paciente.id %}" class="btn-small btn-danger">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

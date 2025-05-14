@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="contenedor">
+    <div class="header-lista">
+        <h2>Listado de Médicos</h2>
+        <a href="{% url 'core:medico_crear' %}" class="btn">Nuevo Médico</a>
+    </div>
+
+    <table class="tabla">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Especialidad</th>
+                <th>Número Colegiado</th>
+                <th>Email</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for medico in medicos %}
+            <tr>
+                <td>{{ medico.nombre }} {{ medico.apellido }}</td>
+                <td>{{ medico.especialidad }}</td>
+                <td>{{ medico.numero_colegiado }}</td>
+                <td>{{ medico.email }}</td>
+                <td class="acciones">
+                    <a href="{% url 'core:medico_editar' medico.id %}" class="btn-editar">Editar</a>
+                    <a href="{% url 'core:medico_eliminar' medico.id %}" class="btn-eliminar">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

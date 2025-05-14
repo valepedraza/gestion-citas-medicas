@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="contenedor">
+    <h2>Eliminar Médico</h2>
+    <p>¿Está seguro de eliminar al médico {{ medico.nombre }} {{ medico.apellido }}?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Confirmar</button>
+        <a href="{% url 'core:medico_lista' %}" class="btn">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

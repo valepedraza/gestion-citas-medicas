@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="dashboard">
+    <h1 class="dashboard-title">Dashboard</h1>
+    
+    <!-- Tarjetas de estadísticas -->
+    <div class="stat-cards">
+        <div class="stat-card">
+            <div class="stat-icon patients">
+                <i class="fas fa-users"></i>
+            </div>
+            <div class="stat-details">
+                <h3>Pacientes</h3>
+                <p class="stat-number">{{ total_pacientes }}</p>
+                <p class="stat-label">Total registrados</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon doctors">
+                <i class="fas fa-user-md"></i>
+            </div>
+            <div class="stat-details">
+                <h3>Médicos</h3>
+                <p class="stat-number">{{ total_medicos }}</p>
+                <p class="stat-label">Total activos</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon appointments">
+                <i class="fas fa-calendar-check"></i>
+            </div>
+            <div class="stat-details">
+                <h3>Citas</h3>
+                <p class="stat-number">{{ citas_pendientes }}</p>
+                <p class="stat-label">Pendientes hoy</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Acciones rápidas -->
+    <div class="quick-actions">
+        <h2>Acciones Rápidas</h2>
+        <div class="action-buttons">
+            <a href="{% url 'core:paciente_crear' %}" class="action-btn">
+                <i class="fas fa-user-plus"></i>
+                Nuevo Paciente
+            </a>
+            <a href="{% url 'core:cita_crear' %}" class="action-btn">
+                <i class="fas fa-calendar-plus"></i>
+                Nueva Cita
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
