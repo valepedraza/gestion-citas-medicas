@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.core.validators import RegexValidator
 
 class Usuario(AbstractUser):
     ROLES = (
@@ -23,9 +24,21 @@ class Paciente(models.Model):
     fecha_nacimiento = models.DateField()  # Fecha de nacimiento del paciente
     telefono = models.CharField(max_length=15)  # Número de contacto
     email = models.EmailField()  # Correo electrónico de contacto
+    direccion = models.CharField(max_length=200, blank=True)  # Dirección del paciente
+    historial_medico = models.TextField(blank=True)  # Historial médico del paciente
+    created_at = models.DateTimeField(auto_now_add=True)  # Fecha de creación del registro
+    updated_at = models.DateTimeField(auto_now=True)  # Fecha de última actualización
+
+    class Meta:
+        ordering = ['-created_at']
 
     def __str__(self):
         return f"{self.nombre} {self.apellido}"
+
+    def get_edad(self):
+        from datetime import date
+        today = date.today()
+        return today.year - self.fecha_nacimiento.year
 
 class Medico(models.Model):
     """

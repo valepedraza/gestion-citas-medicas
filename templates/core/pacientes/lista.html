@@ -7,6 +7,22 @@
         <a href="{% url 'paciente_crear' %}" class="btn">Nuevo Paciente</a>
     </div>
 
+    <div class="filtros">
+        <form method="get" class="form-filtros">
+            <div class="form-group">
+                <input type="text" name="q" placeholder="Buscar..." value="{{ request.GET.q }}">
+            </div>
+            <div class="form-group">
+                <select name="ordenar">
+                    <option value="nombre">Nombre</option>
+                    <option value="apellido">Apellido</option>
+                    <option value="-fecha_nacimiento">Edad</option>
+                </select>
+            </div>
+            <button type="submit" class="btn-filtrar">Filtrar</button>
+        </form>
+    </div>
+
     <div class="buscador">
         <input type="text" id="buscar" placeholder="Buscar paciente...">
     </div>
