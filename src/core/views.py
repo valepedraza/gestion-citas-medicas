@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
+from django.core.exceptions import PermissionDenied
 from .models import Paciente, Medico, Cita
 from .forms import PacienteForm, MedicoForm, CitaForm
 
@@ -15,10 +16,14 @@ def home(request):
     }
     return render(request, 'core/home.html', context)
 
+@login_required
+@permission_required('core.view_paciente')
 def paciente_lista(request):
     pacientes = Paciente.objects.all().order_by('apellido')
     return render(request, 'core/pacientes/lista.html', {'pacientes': pacientes})
 
+@login_required
+@permission_required('core.add_paciente')
 def paciente_crear(request):
     if request.method == 'POST':
         form = PacienteForm(request.POST)

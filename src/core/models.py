@@ -1,5 +1,18 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.core.validators import RegexValidator
+
+class Rol(models.Model):
+    """
+    Modelo para gestionar los roles de usuario en el sistema.
+    Define los diferentes tipos de acceso y permisos.
+    """
+    nombre = models.CharField(max_length=50, unique=True)
+    descripcion = models.TextField()
+    # Agregar: permisos específicos del rol
+
+    def __str__(self):
+        return self.nombre
 
 class Rol(models.Model):
     """
@@ -57,6 +70,7 @@ class Paciente(models.Model):
     Incluye datos personales y médicos relevantes.
     """
 <<<<<<< HEAD
+<<<<<<< HEAD
     nombre = models.CharField(max_length=100)  # Nombre del paciente
     apellido = models.CharField(max_length=100)  # Apellidos del paciente
     dni = models.CharField(max_length=8, unique=True)  # DNI único del paciente
@@ -83,6 +97,23 @@ class Paciente(models.Model):
     def __str__(self):
         return f"{self.usuario.get_full_name()} - DNI: {self.dni}"
 >>>>>>> 9f9077e (feat: Implementación inicial del sistema de citas médicas)
+=======
+    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
+    dni = models.CharField(
+        max_length=8,
+        unique=True,
+        validators=[RegexValidator(regex=r'^\d{8}$')]
+    )
+    fecha_nacimiento = models.DateField()
+    direccion = models.CharField(max_length=200)
+    alergias = models.TextField(blank=True)
+    antecedentes = models.TextField(blank=True)
+    fecha_registro = models.DateTimeField(auto_now_add=True)
+    # Agregar: grupo sanguíneo, contacto de emergencia
+
+    def __str__(self):
+        return f"{self.usuario.get_full_name()} - DNI: {self.dni}"
+>>>>>>> 9f9077ef3bb7dbe09697b4935d676ed33dc5451f
 
 class Medico(models.Model):
     """
