@@ -4,30 +4,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - MediSystem</title>
+    <title>MediSystem - Login</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
 </head>
 <body class="login-page">
-    <div class="login-container">
-        <div class="login-box">
-            <div class="login-header">
-                <h2>MediSystem</h2>
-                <p>Sistema de Gestión de Citas Médicas</p>
-            </div>
-            <form method="post" class="login-form">
-                {% csrf_token %}
-                <div class="form-group">
-                    <i class="fas fa-user"></i>
-                    <input type="text" name="username" placeholder="Usuario" required>
-                </div>
-                <div class="form-group">
-                    <i class="fas fa-lock"></i>
-                    <input type="password" name="password" placeholder="Contraseña" required>
-                </div>
-                <button type="submit" class="btn-login">Ingresar</button>
-            </form>
+    <div class="login-box">
+        <div class="login-header">
+            <img src="{% static 'img/logo.svg' %}" alt="MediSystem" height="64">
+            <h1>MediSystem</h1>
+            <p>Sistema de Gestión Médica</p>
         </div>
+
+        {% if messages %}
+        <div class="alert">
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <form method="post" class="login-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <i class="fas fa-user"></i>
+                <input type="text" 
+                       name="username" 
+                       placeholder="Usuario"
+                       required 
+                       autocomplete="username">
+            </div>
+            <div class="form-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" 
+                       name="password" 
+                       placeholder="Contraseña"
+                       required 
+                       autocomplete="current-password">
+            </div>
+            <button type="submit" class="btn-login">
+                Iniciar Sesión
+            </button>
+        </form>
     </div>
 </body>
 </html>
