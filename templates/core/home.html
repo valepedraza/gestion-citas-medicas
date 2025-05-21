@@ -1,6 +1,120 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<style>
+    .dashboard-title {
+        color: #357ae8;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        text-align: center;
+        letter-spacing: 1px;
+    }
+    .stat-cards {
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        margin-bottom: 2.5rem;
+        flex-wrap: wrap;
+    }
+    .stat-card {
+        background: linear-gradient(135deg, #e3f0ff 0%, #f8fcff 100%);
+        border-radius: 18px;
+        box-shadow: 0 4px 24px rgba(79,140,255,0.10);
+        padding: 2rem 1.5rem;
+        min-width: 220px;
+        max-width: 260px;
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+        transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .stat-card:hover {
+        transform: translateY(-4px) scale(1.03);
+        box-shadow: 0 8px 32px rgba(79,140,255,0.18);
+    }
+    .stat-icon {
+        font-size: 2.5rem;
+        border-radius: 50%;
+        width: 56px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #4f8cff 0%, #6dd5ed 100%);
+        color: #fff;
+        box-shadow: 0 2px 8px rgba(79,140,255,0.13);
+    }
+    .stat-details h3 {
+        margin: 0;
+        font-size: 1.1rem;
+        color: #357ae8;
+        font-weight: 600;
+    }
+    .stat-number {
+        font-size: 2.1rem;
+        font-weight: 700;
+        color: #222;
+        margin: 0.2rem 0 0.1rem 0;
+    }
+    .stat-label {
+        color: #888;
+        font-size: 0.95rem;
+        margin: 0;
+    }
+    .quick-actions {
+        background: #fff;
+        border-radius: 14px;
+        box-shadow: 0 2px 12px rgba(79,140,255,0.07);
+        padding: 2rem 1.5rem;
+        max-width: 600px;
+        margin: 0 auto;
+        margin-bottom: 2rem;
+    }
+    .quick-actions h2 {
+        color: #357ae8;
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 1.2rem;
+        text-align: center;
+    }
+    .action-buttons {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .action-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        background: linear-gradient(90deg, #4f8cff 0%, #6dd5ed 100%);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 0.9rem 1.7rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-decoration: none;
+        box-shadow: 0 2px 8px rgba(79,140,255,0.10);
+        transition: background 0.2s, transform 0.1s;
+    }
+    .action-btn:hover {
+        background: linear-gradient(90deg, #357ae8 0%, #4fc3f7 100%);
+        transform: translateY(-2px) scale(1.04);
+        color: #fff;
+        text-decoration: none;
+    }
+    @media (max-width: 900px) {
+        .stat-cards {
+            flex-direction: column;
+            align-items: center;
+        }
+        .stat-card {
+            width: 90vw;
+            max-width: 350px;
+        }
+    }
+</style>
 <div class="dashboard">
     <h1 class="dashboard-title">Dashboard</h1>
     

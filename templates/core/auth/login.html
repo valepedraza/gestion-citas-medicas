@@ -7,12 +7,103 @@
     <title>Login - MediSystem</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        body.login-page {
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #4f8cff 0%, #6dd5ed 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .login-container {
+            width: 100vw;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .login-box {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+            padding: 2.5rem 2rem;
+            width: 100%;
+            max-width: 370px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .login-header h2 {
+            margin: 0 0 0.5rem 0;
+            color: #4f8cff;
+            font-weight: 700;
+            font-size: 2rem;
+        }
+        .login-header p {
+            color: #888;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+        .login-form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+        .form-group {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .form-group i {
+            position: absolute;
+            left: 12px;
+            color: #4f8cff;
+            font-size: 1.1rem;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 0.7rem 0.7rem 0.7rem 2.5rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: border 0.2s;
+        }
+        .form-group input:focus {
+            border: 1.5px solid #4f8cff;
+        }
+        .btn-login {
+            background: linear-gradient(90deg, #4f8cff 0%, #6dd5ed 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 0.8rem 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(79,140,255,0.08);
+            transition: background 0.2s, transform 0.1s;
+        }
+        .btn-login:hover {
+            background: linear-gradient(90deg, #357ae8 0%, #4fc3f7 100%);
+            transform: translateY(-2px) scale(1.03);
+        }
+        @media (max-width: 500px) {
+            .login-box {
+                padding: 1.5rem 0.5rem;
+                max-width: 95vw;
+            }
+        }
+    </style>
 </head>
 <body class="login-page">
     <div class="login-container">
         <div class="login-box">
             <div class="login-header">
-                <h2>MediSystem</h2>
+                <h2><i class="fas fa-stethoscope"></i> MediSystem</h2>
                 <p>Sistema de Gestión de Citas Médicas</p>
             </div>
             <form method="post" class="login-form">
