@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block body_class %}pacientes-bg{% endblock %}
+
+{% block content %}
+<div class="contenedor">
+    <h2>Eliminar Paciente</h2>
+    <p>¿Está seguro de eliminar al paciente {{ paciente.nombre }} {{ paciente.apellido }}?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Confirmar</button>
+        <a href="{% url 'core:paciente_lista' %}" class="btn">Cancelar</a>
+    </form>
+</div>
+{% endblock %}
