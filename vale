@@ -1,0 +1,27 @@
+[33mcommit c322ad7a56b2f7bb21cdaacf01d7425dc51247e5[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: valentina <vpedraza@uniguajira.edu.co>
+Date:   Wed May 21 14:10:49 2025 -0500
+
+    Describe brevemente los cambios realizados
+
+[33mcommit fa6bdb669fda4f4ee875366d3a7cc131ef4332e9[m
+Author: valentina <vpedraza@uniguajira.edu.co>
+Date:   Wed May 21 13:41:50 2025 -0500
+
+    Tu mensaje descriptivo del cambio
+
+[33mcommit 0ce85f00da3b2d867f09c1087d8c20ac82680b0e[m[33m ([m[1;31mupstream/main[m[33m, [m[1;31mupstream/HEAD[m[33m)[m
+Author: Pedro <paponte@uniguajira.edu.co>
+Date:   Thu May 15 13:53:00 2025 -0500
+
+    Añadir campos adicionales y métodos al modelo Paciente, implementar funciones para buscar citas disponibles y obtener próximas citas, y mejorar la interfaz de usuario con filtros en la lista de pacientes.
+
+[33mcommit 0139535f65a863d78c03262414a1465c2f397130[m
+Author: pedro <paponte@uniguajira.edu.com>
+Date:   Wed May 14 18:42:08 2025 -0500
+
+[33mcommit 05ff744da85038f0b41ce0405c7962d74a902d06[m
+Author: pedro <paponte@uniguajira.edu.com>
+Date:   Wed May 14 16:09:42 2025 -0500
+
+    Configuración inicial del proyecto
